@@ -59,18 +59,19 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
     $ docker run -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 4200:4200 --rm angular-app
 
-### Checkout http://localhost:4200 in browser. Update html files and see if hot-reload works.
+    Checkout http://localhost:4200 in browser. Update html files and see if hot-reload works.
+
 ### Kill the server:
 
     docker container stop container_id
 
-### docker run flags:
-    
-    -it - interactive with terminal
-    -d  - run container in background
+    docker run flags:
+        -it - interactive with terminal
+        -d  - run container in background
 
 ### Unit tests. Run Chrome in headless mode using Karma. 
-### in karma.config.conf
+
+    In karma.config.conf
 
     browsers: ['ChromeHeadless'],
     customLaunchers: {
@@ -85,14 +86,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     $ docker exec -it angular-app-container ng test --watch=false
     $ ng e2e
 
-### After test. Remote containers:
+### After test. Remove containers:
 
     $ docker stop angular-app-container
     $ docker rm angular-app-container
 
 ### Using docker-compose:
-### Add a docker-compose.yaml file on the project root.
 
+    Add a docker-compose.yaml file on the project root.
     See docker-compose.yaml of this project
 
 ### Build image and run container:
@@ -110,9 +111,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Production Deployment
 
-### 2 stages: 
-### Stage 1 - build and test. Will stop deployment if build or test fails.
-### Stage 2 - Copy build files to production.
+    2 stages: 
+        Build   - build and test. Will stop deployment if build or test fails.
+        Deploy  - Copy build files to production.
 
 ### Create production docker file Dockerfile-prod:
 
