@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+    angular-app:
+        container_name: angular-app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - '.:/usr/src/app'
+            - '/usr/src/app/node_modules'
+        ports:
+            - '4200:4200'
+        environment:
+            - CHOKIDAR_USEPOLLING=true
